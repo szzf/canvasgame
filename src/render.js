@@ -24,18 +24,14 @@ Render.prototype = {
         } else {
             ctx.fillRect(pointX, pointY, SQUAREWIDTH, SQUAREWIDTH)
         }
-        // strokeSide(pointX, pointY, type)
 
         // 订阅者 数据变动重新渲染
         new Watcher(map, key, function (newType, oldType) {
-            // console.log('新值:' + newType, 'old:' + oldType)
 
             ctx.fillStyle = TYPESTRATEGY[newType]
             ctx.fillRect(pointX + BASICLINE, pointY + BASICLINE, SQUAREWIDTH - BASICLINE * 2, SQUAREWIDTH - BASICLINE * 2)
 
             // 数据改变后的操作
-
-
             self.pushData(newType, temp[0], temp[1])
             self.removeData(oldType, temp[0], temp[1])
 

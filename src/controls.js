@@ -15,8 +15,6 @@ Game.prototype = {
 
         this.m.initStones(10)
         this.m.initFoods(5)
-
-
     },
 
     bindEvent: function () {
@@ -60,12 +58,8 @@ Game.prototype = {
         clearTimeout(this.snakeAI.timer)
         alert('你的分数是: ' + this.snake.scores + '    电脑的分数是: ' + this.snakeAI.scores)
         this.init()
-
     },
-
 }
-
-
 
 var game = new Game()
 

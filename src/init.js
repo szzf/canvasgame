@@ -15,13 +15,11 @@ var TYPESTRATEGY = {
     18: 'gray',  // AI蛇身
     19: '#444',   // AI蛇头
     10: '#222',  // 障碍物
-    // 11: '#999'
 }
 var canvas = document.querySelector('#canvas')
 var ctx = canvas.getContext('2d')
 canvas.width = XLEN * SQUAREWIDTH
 canvas.height = YLEN * SQUAREWIDTH
-
 
 // 生成地图
 function Map(x, y) {
@@ -47,61 +45,25 @@ Map.prototype = {
             }
         }
     },
-    // initGround: function () {
-    //     var self = this
-    //     this.snakeBodys.forEach(function (key) {
-    //         delete self.ground[key]
-    //     })
-    // },
-    // updateGround: function () {
-    //     var self = this
-    //     this.snakeBodys.forEach(function (key) {
-    //         self.ground[key] = 0
-    //     })
-    // },
+
     initStones: function (count) {
-        // this.initGround()
+
         var length = Object.keys(this.ground).length
-
         for (var i = 0; i < count; i++) {
-
             var random = Math.floor(Math.random() * (length - i))
             var key = Object.keys(this.ground)[random]
-            // this.stones.push(key)
-            // delete this.ground[key]
-
             this.map[key] = 10
         }
-
-        // this.updateGround()
     },
     initFoods: function (count = 1) {
-        // this.initGround()
-        // 弹出之前的坐标
-        // this.foods.forEach((key, i) => {
-        //     if (this.map[key] != 5) {
-        //         this.foods.splice(i, 1)
-        //     }
-        // })
+
         var length = Object.keys(this.ground).length
         for (var i = 0; i < count; i++) {
             var random = Math.floor(Math.random() * (length - i))
             var key = Object.keys(this.ground)[random]
-            // this.foods.push(key)
-            // delete this.ground[key]
-
             this.map[key] = 5
         }
-        // this.updateGround()
-
     },
-    // initSnake: function (snakeHead) {
-    //     var current = snakeHead
-    //     while (current) {
-    //         this.snakeBodys.push(current.x + '-' + current.y)
-    //         current = current.next
-    //     }
-    // },
     stringToObj: function (string) {
         if (typeof string != 'string') {
             console.log('类型错误')
@@ -114,7 +76,6 @@ Map.prototype = {
         }
     }
 }
-
 
 // 定义一个基类
 function Square(x, y, type) {

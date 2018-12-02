@@ -19,7 +19,6 @@ var DIRECTIONLIST = {
 
 }
 
-
 // 创建蛇
 function Snake(m, head, body, tail, headColor, bodysColor) {
 
@@ -90,9 +89,7 @@ Snake.prototype = {
 
         // 计算 起始点 - 终点 的路径
         var path = this.getPath(this.astar)
-
         this.autoMove(path)
-
 
     },
     autoMove: function (path) {
